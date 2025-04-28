@@ -1,12 +1,12 @@
 "use client"; // Menandakan bahwa ini adalah komponen client
 
 import Image from "next/image";
-import { Mail, Linkedin, ArrowLeft } from "lucide-react";
+import Link from "next/link"; // 🛠️ Import Link dengan benar
+import { Mail, Linkedin } from "lucide-react";
 import { useState } from "react";
-import Link from "next/link";
 
 export default function CV() {
-   const [open, setOpen] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | null>(null); // 🛠️ Fix typing useState
 
   const pengalaman = [
     {
@@ -34,7 +34,13 @@ export default function CV() {
       <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-8">
         {/* Header & Foto Profil */}
         <div className="flex items-center gap-6 mb-6">
-          <Image src="/images/saitama.png" alt="Foto Profil" width={100} height={100} className="rounded-full border-4 border-blue-500" />
+          <Image
+            src="/images/saitama.png"
+            alt="Foto Profil"
+            width={100}
+            height={100}
+            className="rounded-full border-4 border-blue-500"
+          />
           <div>
             <h1 className="text-4xl font-bold text-blue-700 dark:text-blue-400">Firgi</h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">Junior Web Developer</p>
@@ -57,8 +63,8 @@ export default function CV() {
             {pengalaman.map((exp, i) => (
               <div
                 key={i}
-                className="rounded border border-blue-200 dark:border-blue-700 p-3 hover:bg-blue-50 dark:hover:bg-blue-900 transition cursor-pointer"              
-                onClick={() => setOpen(open === i ? null : i)}>
+                className="rounded border border-blue-200 dark:border-blue-700 p-3 hover:bg-blue-50 dark:hover:bg-blue-900 transition cursor-pointer"
+                onClick={() => setOpen(open === i ? null : i)}
               >
                 <div className="flex flex-col">
                   <span className="font-medium">{exp.title}</span>
@@ -86,7 +92,8 @@ export default function CV() {
         <section className="mb-6">
           <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-300">Kontak</h2>
           <div className="flex items-center mt-2 gap-2">
-            <Mail className="text-blue-500" /> <span className="font-medium">user@email.com</span>
+            <Mail className="text-blue-500" />
+            <span className="font-medium">user@email.com</span>
           </div>
           <div className="flex items-center mt-2 gap-2">
             <Linkedin className="text-blue-500" />
@@ -98,7 +105,7 @@ export default function CV() {
         <div className="mt-8 text-center">
           <Link href="/">
             <button className="flex items-center bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-500 transition mx-auto">
-               ← Kembali ke Halaman Utama
+              ← Kembali ke Halaman Utama
             </button>
           </Link>
         </div>
