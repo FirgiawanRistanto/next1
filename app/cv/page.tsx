@@ -3,9 +3,10 @@
 import Image from "next/image";
 import { Mail, Linkedin, ArrowLeft } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function CV() {
-  const [open, setOpen] = useState(null);
+   const [open, setOpen] = useState<number | null>(null);
 
   const pengalaman = [
     {
@@ -56,8 +57,8 @@ export default function CV() {
             {pengalaman.map((exp, i) => (
               <div
                 key={i}
-                className="rounded border border-blue-200 dark:border-blue-700 p-3 hover:bg-blue-50 dark:hover:bg-blue-900 transition cursor-pointer"
-                onClick={() => setOpen(open === i ? null : i)}
+                className="rounded border border-blue-200 dark:border-blue-700 p-3 hover:bg-blue-50 dark:hover:bg-blue-900 transition cursor-pointer"              
+                onClick={() => setOpen(open === i ? null : i)}>
               >
                 <div className="flex flex-col">
                   <span className="font-medium">{exp.title}</span>
@@ -95,11 +96,11 @@ export default function CV() {
 
         {/* Tombol Kembali */}
         <div className="mt-8 text-center">
-          <a href="/">
+          <Link href="/">
             <button className="flex items-center bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-500 transition mx-auto">
                ← Kembali ke Halaman Utama
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
